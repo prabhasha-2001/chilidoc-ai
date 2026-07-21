@@ -9,18 +9,61 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom Styling
+# Custom Styling & CSS Animations
 st.markdown("""
     <style>
-    .main-title { font-size: 38px; color: #D32F2F; font-weight: bold; }
-    .sub-title { font-size: 18px; color: #555; }
-    .agent-box { padding: 15px; border-radius: 10px; background-color: #f8f9fa; margin-bottom: 15px; border-left: 5px solid #2E7D32; }
+    .main-title { 
+        font-size: 42px; 
+        color: #D32F2F; 
+        font-weight: 800; 
+        font-family: 'Inter', sans-serif;
+    }
+    .sub-title { 
+        font-size: 18px; 
+        color: #555; 
+        margin-bottom: 10px;
+    }
+    .agent-box { 
+        padding: 20px; 
+        border-radius: 12px; 
+        background-color: #f8f9fa; 
+        margin-bottom: 20px; 
+        border-left: 6px solid #2E7D32;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    
+    /* Smooth Bouncing & Floating Animation for Chili Icon */
+    .chili-animation-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    
+    .animated-chili-icon {
+        font-size: 70px;
+        display: inline-block;
+        animation: floatAndBounce 3s ease-in-out infinite;
+    }
+
+    @keyframes floatAndBounce {
+        0% { transform: translateY(0px) rotate(0deg) scale(1); }
+        50% { transform: translateY(-15px) rotate(8deg) scale(1.1); }
+        100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    }
     </style>
 """, unsafe_allow_html=True)
 
+# Top Bouncing Animated Chili Header
+st.markdown("""
+    <div class="chili-animation-container">
+        <div class="animated-chili-icon">🌶️</div>
+    </div>
+""", unsafe_allow_html=True)
+
 # Header Section
-st.markdown('<div class="main-title">🌶️ ChiliDoc AI</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-title">Multi-Agent Agronomic Advisor & Diagnostic System</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title" style="text-align: center;">ChiliDoc AI</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title" style="text-align: center;">Multi-Agent Agronomic Advisor & Diagnostic System</div>', unsafe_allow_html=True)
 st.divider()
 
 # Sidebar for Config & Information
