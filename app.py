@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 from agents import diagnostic_specialist_agent, rag_researcher_agent, agronomy_critic_agent
 
 # Page Configuration
@@ -69,6 +70,9 @@ if submit_btn:
         # Step 3: Agronomy Critic
         with st.spinner("🛡️ Agent 3: Agronomy Critic is reviewing for safety and sustainability..."):
             final_advisory = agronomy_critic_agent(diag_output, rag_output)
+            
+            # Clean up placeholders and names
+            final_advisory = re.sub(r'\[(?:Your\s+)?Name\]', 'ChiliDoc AI Team', final_advisory, flags=re.IGNORECASE)
 
         # Final Approved Advisory Result
         st.success("✅ Final Approved Treatment Advisory")
