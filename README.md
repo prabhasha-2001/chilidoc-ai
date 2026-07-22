@@ -5,6 +5,10 @@ It combines **ReAct Reasoning**, **Retrieval-Augmented Generation (RAG)** via FA
 
 ---
 
+**Live Demo:** [ChiliDoc AI Web App](https://chilidoc-aigit-9kamumbepl3pj3qguafape.streamlit.app/)
+
+---
+
 ## 🤖 System Architecture & Active Agents
 
 The system uses three specialized LangChain AI agents working in sequence:
